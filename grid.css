@@ -1,0 +1,14 @@
+.grid-card{
+    width: 200px;
+    height: 180px;
+    background-color: red;
+}
+
+.grid-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+}
+    
+
+
