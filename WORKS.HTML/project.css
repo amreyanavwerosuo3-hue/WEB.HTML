@@ -1,0 +1,128 @@
+:root{
+     --primary-colour:#1627b97e;
+     --heading-colour:#e9e3e3;
+     --text-body-colour:#efe2e2;
+     --background-colour:rgb(232, 135, 75);
+     --background-overly:rgb(66, 55, 48);
+     --border-colour:hsla(0, 66%, 70%, 0.1);
+     --spacing:100px;
+     --spacing-sm:60px;
+     --radius-large:24px;
+     --radius-medium:16px;
+     --radius-small:10px;
+     --body-text-size:16px;
+     --heading-h1:48px;
+     --heading-h2:38px;
+     --headings:30px
+}
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html body{
+    font-size: 16px;
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%;
+}
+
+
+h2,
+h3,
+h4{
+color: var(--heading-colour);
+}
+
+h1{
+     font-size: var(--heading-h1);
+     
+}
+
+h2{
+     font-size: var(--heading-h2);
+}
+
+h3,
+h4{
+     font-size: var(--headings);
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+    border: 12px;
+    padding: 16px 30px;
+     background-color: var(--background-overly);
+      border-radius: 50px;
+      border: 1px solid var(--border-colour);
+      align-items: center;
+      gap: 25px;
+}
+
+.title a{
+    color: #a39b9b;
+    text-decoration: none;
+}
+
+.title  a:hover{
+     color: var(--primary-colour);
+     transition: 0.3s all ease-in-out;
+}
+
+.hero-section{ 
+   height: 100vh;
+    width: 100%;
+    background-color: #222;
+    color:#fff;
+    background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),
+    url(/medias/res11.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 40px;
+}
+
+.hero-section div {
+    max-width: 350px;
+    color: rgb(232, 135, 75);
+}
+
+
+body{
+     background-color: var(--background-colour);
+     color: var(--text-body-colour);
+     font-size: 1rem;
+     line-height: 1.6;
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 20px;
+}
+
+.card1{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-wrapper{
+     width: 100%;
+     height: auto;
+     background-color:var(--background-overly);
+     padding: 20px;
+     border-radius: 15px;
+     box-sizing: border-box;
+     transition: transform 0.3s ease,box shadow 0.3s ease;
+     margin-top: 15px;
+     max-width: 550px;
+}
+.card1 h1{
+    color: #222;
+}
