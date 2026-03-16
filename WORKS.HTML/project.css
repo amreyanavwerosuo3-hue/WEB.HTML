@@ -126,3 +126,7 @@ body{
 .card1 h1{
     color: #222;
 }
+.card1:hover{
+     transition: translateY(-10px);
+     box-shadow: 0 10px 20px rgba(0, 0,0, 0.2) 
+}
