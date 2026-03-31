@@ -63,3 +63,21 @@ console.log(prices.toString() + 100);
 console.log(currency.toFixed(6))
 console.log(parseInt(prices) + 100)
 
+
+// class work
+
+const register = ['bola','yemi','ade','beauty','faith'];
+
+console.log(register.includes('yemi'))
+console.log(register.includes('bisola'))
+
+register.push('boaz');
+
+register.sort();
+
+register.forEach(name => {
+    console.log(`this student were present ${name}`);
+});
+
+
+
