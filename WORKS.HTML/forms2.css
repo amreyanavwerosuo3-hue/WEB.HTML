@@ -1,0 +1,39 @@
+.form{
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    border: solid;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 250px;
+    max-width: 350px;
+}
+
+.label1{
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #333;
+    padding: 10px 20px;
+    max-width: 250px;
+}
+
+.label2{
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+     justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #333;
+    padding:10px 20px ;
+    margin: 12px 10px;
+    max-width: 250px;
+}

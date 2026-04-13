@@ -79,5 +79,89 @@ register.forEach(name => {
     console.log(`this student were present ${name}`);
 });
 
+// object
+
+const user1name = 'johnson';
+const user1age = 30;
+const user1email = 'johnson@gmail.com';
+const user1bestFoods = 'pap and garri';
+const user1hasMarried = true;
+const user1hasFamily = true;
+const user1health = false;
+
+const user1 = {
+    name: 'johnson',
+    age: 30,
+    email:'johnson@gmail.com',
+    bestFoods: 'pap and garri',
+    hasMarried: true ,
+    hasFamily: true,
+    health: false,
+
+}
+user1.name ='faith';
+user1.bestFoods = 'okro and bread';
+
+console.log(user1)
+
+console.log(`does he have family ${user1.hasMarried}`)
+
+// operators
+
+// Arithmethics
+
+const num1 =40;
+let num2 = 30;
+
+num2 += 20;
+
+console.log(num1 + num2);
+console.log(num1 / num2);
+console.log(num1 - num2);
+console.log(num1 * num2);
+
+let shoppingItems = [];
+
+shoppingItems += 'shoe';
+
+shoppingItems += ' bag';
+
+console.log(shoppingItems); 
+
+
+// seat work
+
+let availableBalance = 2000;
+
+let dailySpending = 1500
+
+availableBalance += 1500;
+
+availableBalance += 2000;
+
+availableBalance -= 1500;
+
+availableBalance -= 100;
+
+console.log(availableBalance - dailySpending)
+
+console.log(availableBalance)
+
+
+
+// comparison operators
+
+const price1 = 110;
+const price2 ='10';
+
+console.log(price1 === price2);
+
+console.log(price1 !== price2);
+
+console.log(price1 > price2);
+console.log(price1 <= price2);
+console.log(price1 < price2);
+console.log(price1 >= price2);
+
 
 
