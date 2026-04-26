@@ -165,3 +165,126 @@ console.log(price1 >= price2);
 
 
 
+// ternary operator
+
+const appUsername ="1";
+
+const welcomeUser = appUsername ? `welcome back;  ${appUsername}` : `please login, guest`; 
+
+console.log(welcomeUser);
+
+const userAge = 22;
+const requiredAge = userAge >= 18 ? 'yes can vote' : 'you can not vote';
+
+console.log(requiredAge)
+
+// loops and full loop
+
+const localFoodlist = ["banga", "egusi", "ogbono", "afang", "ofaku", "vegetable", "okro"];
+
+for (let i = 0; i < localFoodlist.length; i++) {
+    console.log(localFoodlist[i]);
+}
+
+
+const classNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (let i = 0; i < classNumber.length; i++) {
+    console.log(classNumber[i]); }
+
+    const studentName = 'justice'
+
+    for (let i = 0; i < studentName.length; i++) {
+        console.log(studentName[i]);
+    }
+
+    const webStudents = ['enoch', 'alex', 'biggie', 'mary', 'james','arthur'];
+
+    for (let student of webStudents) {
+        console.log(student);
+    }
+
+    // loop through an object using for in
+
+    const modelDetails = {
+        up: 'head',
+        middle: 'body',
+        down: 'legs',
+    };
+
+    for (let item in modelDetails) {
+        console.log( modelDetails[item]);
+    }
+
+
+const hobbies = ["swimming", "football", "cooking"];
+
+for (let hobbie in hobbies) {
+    console.log(hobbies[hobbie]); }
+
+
+    const details = {
+        name : 'justice',
+        age : 22,
+        status: 'single',
+        skill : 'programming',
+
+    };
+
+    for (let item in details) {
+        console.log(details[item])
+    }
+
+    function totalprice(multiply) {
+        let item = 5000;
+
+        console.log(item * multiply)
+    }
+
+    totalprice(5000)
+
+
+
+
+
+
+//    dom manipulation 
+
+ const heading = document.querySelector('h2')
+
+ console.log(heading)
+
+ const teddy = document.querySelector('.text-area')
+
+ console.log(teddy)
+
+ const mute = document.querySelector('#mute')
+
+ console.log(mute)
+
+ const change = document.querySelector('.cane')
+
+ change.textContent = 'JAVASCRIPT IS EASY'   
+
+const form = document.querySelector('#form')
+
+const userName = document.getElementById('username')
+
+const email = document.getElementById ('email')
+
+const passWord = document.getElementById('password')
+
+const error = document.querySelector('.error')
+
+form.addEventListener('summit', e => {
+    e.preventDefault();
+
+    if ( userName.value === '' || email.value === ''|| password.value ==='' ) {
+        error.textContent = 'please fill in all field';
+        error.style.color = 'red'
+    }
+     else{
+        error.textContent = 'form submitted successfully';
+        error.style.color ='green';
+     }
+} )
