@@ -12,38 +12,45 @@
     <div>
         <nav class="nav-link">
             <a href="#">Home</a>
-            <a href="#">Courses</a>
-            <a href="#">Login</a>
+            <a href="view.html">course</a>
+            <a href="login.html">Login</a>
         </nav>
     </div>
     </div>
     <main>
         <section>
             <div class="hero">
+              <div class="hero-content">
             <h2>Learn usefull skills with high pays.</h2>
             <h3>Practical courses designed to help you <span>earn and grow financially</span>.</h3>
             <button>START LEARNING</button>
+            </div>
             </div>
         </section>
         <section>
             <h3>Popular Courses</h3>
             <div class="grid">
-                
+                      <form action="web.html">
                     <div class="grid-wrapper">
                     <h3>Web Development</h3>
                     <p>Web development is the process of building and maintaining websites or web applications that run on the internet</p>
-                    <button>VIEW COURSE</button>
+                    <button><a href="web.html"></a>VIEW COURSE</button>
                     </div>
+                      </form>
+                      <form action="ux.html">
                     <div class="grid-wrapper">
                     <h3>UI/UX Design</h3>
                     <p>UI/UX design is the process of creating digital products that are both visually appealing and easy to use.</p>
-                    <button>VIEW COURSE</button>
+                    <button><a href="ux.html"></a>VIEW COURSE</button>
                     </div>
+                      </form>
+                      <form action="marketing.html">
                     <div class="grid-wrapper">
                     <h3>Digital Marketing</h3>
                     <p>Digital marketing is the use of online channels and technologies to promote products, services, or brands to a target audience</p>
-                    <button>VIEW COURSE</button>
+                    <button><a href="marketing.html"></a>VIEW COURSE</button>
                     </div>
+                      </form>
                 
             </div>
  </section>
@@ -61,21 +68,30 @@
  <section class="container">
     <h2>Courses</h2>
     <div class="course-grid">
+      <form action="web.html">
        <div class="course-card">
         <h3>Web Develoment Basics</h3>
+       <img src="/medias/jpg.web.png" alt="images">
         <p>Learn HTML, CSS, and JAVASCRIPT from scratch</p>
         <button class="btn">View Details</button>
        </div> 
+      </form>
+      <form action="ux.html">
        <div class="course-card">
         <h3>UI/UX Design</h3>
+        <img src="/medias/jpg.uiux.png" alt="image">
         <p>Design clean and user-friendly interfaces</p>
         <button class="btn">View Details</button>
        </div>
+       </form>
+       <form action="marketing.html">
        <div class="course-card">
         <h3>Digital Markrting</h3>
+        <img src="/medias/jpg.market.png" alt="">
         <p>Learn how to grow brands online</p>
         <button class="btn">View Details</button>
        </div>
+       </form>
     </div>
  </section>
  <section class="course-wrap">
@@ -165,8 +181,43 @@
   </div>
 </div>
 </div>
-</section>
+ </section>
     </main>
+    <footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>SKILLFORGE<span>.</span></h3>
+            <p>Empowering the next generation of developers with practical, project-based learning.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Resources</h4>
+            <ul>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Student Support</a></li>
+                <li><a href="#">Scholarships</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h4>Connect</h4>
+            <div class="social-icons">
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                <a href="#" aria-label="GitHub">GitHub</a>
+                <a href="#" aria-label="Twitter">Twitter</a>
+            </div>
+            <p>Email:skillforge@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 SKILLFORGE Inc. All rights reserved.</p>
+        <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
     <script src="project2.js" defer></script>
 </body>
 </html>

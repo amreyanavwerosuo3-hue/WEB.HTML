@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dash board</title>
+    <link rel="stylesheet" href="project2.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1 id="welcomeMessage">Welcome, <span id="userName">Student</span></h1>
+        <button id="logoutBtn" class="btn-logout">Logout</button>
+    </header>
+
+    <main class="dashboard-content">
+        <section class="enrolled-section">
+            <h2>Enrolled Courses</h2>
+            
+            <p id="noCoursesMessage" class="empty-state">You have not enrolled in any course yet.</p>
+
+            <div id="courseContainer" class="course-grid">
+                <div class="course-card">
+                    <h3>Web Development 101</h3>
+                    <p class="status">In Progress</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
