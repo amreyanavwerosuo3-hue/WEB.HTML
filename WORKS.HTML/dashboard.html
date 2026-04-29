@@ -6,25 +6,54 @@
     <title>Dash board</title>
     <link rel="stylesheet" href="project2.css">
 </head>
-<body>
-    <header class="dashboard-header">
-        <h1 id="welcomeMessage">Welcome, <span id="userName">Student</span></h1>
-        <button id="logoutBtn" class="btn-logout">Logout</button>
-    </header>
+<body><div class="dashboard-wrapper">
+        <header class="main-header">
+            <div class="user-info">
+                <h1>Welcome, <span id="userName" id="display-name">Student</span></h1>
+                <p class="subtitle">Keep track of your learning progress.</p>
+            </div>
+            <form action="project2.html">
+            <button id="logoutBtn" class="logout-pill">Logout</button>
+            </form>
+        </header>
 
-    <main class="dashboard-content">
-        <section class="enrolled-section">
-            <h2>Enrolled Courses</h2>
-            
-            <p id="noCoursesMessage" class="empty-state">You have not enrolled in any course yet.</p>
+        <main class="content-area">
+            <div class="section-header">
+                <h2>Enrolled Courses</h2>
+                <span class="course-count">2 Courses</span>
+            </div>
+
+            <div id="emptyState" class="hidden">
+                <div class="empty-card">
+                    <p>You have not enrolled in any course yet.</p>
+                </div>
+            </div>
 
             <div id="courseContainer" class="course-grid">
                 <div class="course-card">
-                    <h3>Web Development 101</h3>
-                    <p class="status">In Progress</p>
+                    <div class="card-content">
+                        <h3>Fullstack Web Development</h3>
+                        <span class="badge">In Progress</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="progress-bar"><div class="fill" style="width: 45%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="card-content">
+                        <h3>UI/UX Design Masterclass</h3>
+                        <span class="badge">In Progress</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="progress-bar"><div class="fill" style="width: 20%;"></div></div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </main>
+    </div>
+
+
+    <script src="project2.js"></script>
 </body>
 </html>
