@@ -1,207 +1,103 @@
-document.addEventListener('DOMContentLoaded', () => {
-
-const enrollBtn = document.getElementById('enrollButton');
-
-// Example variables - in a real app, these come from your database/auth
-let isLoggedIn = false; 
-let isEnrolled = false;
-
-function updateUI() {
-    if (enrollBtn) {
-    if (!isLoggedIn) {
-        enrollBtn.innerText = "Login to Enroll";
-        enrollBtn.classList.remove('enrolled');
-    } else if (isLoggedIn && !isEnrolled) {
-        enrollBtn.innerText = "Enroll Now";
-        enrollBtn.classList.remove('enrolled');
-    } else if (isEnrolled) {
-        enrollBtn.innerText = "Enrolled ✅";
-        enrollBtn.classList.add('enrolled'); // Turns the button green
-    }
-}
-}
-
-// Run the check on page load
-updateUI();
-
-
-// Select the form element
-const signupForm = document.getElementById('signupForm');
+// --- SIGNUP LOGIC ---
+const signupForm = document.getElementById('signup-form'); // Ensure HTML has id="signup-form"
 
 if (signupForm) {
-signupForm.addEventListener('submit', function (e) {
-    e.preventDefault(); 
+    signupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    console.log("Form submitted")
-// Prevent page refresh
+        // 1. Capture inputs
+        const name = document.getElementById('signup-name').value;
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
 
-    // 1. Capture Input Values
-    const name = document.getElementById('fullName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+        // 2. Retrieve existing list or create empty array
+        const allUsers = JSON.parse(localStorage.getItem('allUsers')) || [];
 
-    // 2. Validate Inputs (Basic Check)
-    if (!name || !email || !password) {
-        alert("Please fill in all fields.");
-        return;
-    }
+        // 3. Prevent duplicate emails (MANDATORY REQUIREMENT)
+        const exists = allUsers.find(user => user.email === email);
+        if (exists) {
+            alert("Email already registered!");
+            return;
+        }
 
-    if (password.length < 6) {
-        alert("Password must be at least 6 characters long.");
-        return;
-    }
+        // 4. Save the user object correctly
+        allUsers.push({ name, email, password });
+        localStorage.setItem('allUsers', JSON.stringify(allUsers)); // Fixed 'userData' typo
 
-    // 3. Get existing users from localStorage or initialize empty array
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-
-    // 4. Prevent Duplicate Emails
-    const isDuplicate = users.find(user => user.email === email);
-    if (isDuplicate) {
-        alert("An account with this email already exists.");
-        return;
-    }
-
-    // 5. Create User Object
-    const newUser = {
-        name: name,
-        email: email,
-        password: password // In a real app, passwords should be hashed!
-    };
-
-    // 6. Save User to localStorage
-    users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(users));
-
-    alert("Account created successfully!");
-    signupForm.reset(); // Clear the form
-});
-} else  {console.log("signup form not found on this page, skipping listener.");
+        alert("Account created successfully!");
+        window.location.href = "login.html"; 
+    });
 }
-
-}); 
+// --- LOGIN PAGE LOGIC ---
 const loginForm = document.getElementById('login-form');
 
 if (loginForm) {
     loginForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevents the page from refreshing/bouncing
+        e.preventDefault();
 
-        // Get the values EXACTLY when the button is clicked
-        const nameInput = document.getElementById('login-name').value;
-        const emailInput = document.getElementById('login-email').value;
+        // 1. Get values and force them to lowercase
+        const emailInput = document.getElementById('login-email').value.toLowerCase().trim();
+        const passwordInput = document.getElementById('login-password').value;
 
-        // Check if the inputs themselves exist before reading .value
-        if (nameInput && emailInput) {
-            const nameValue = nameInput.value;
-            localStorage.setItem('loggedInUser', nameValue);
-            window.location.href = "dashboard.html";
-        }
+        // 2. Get the same list the Signup page used
+        const allUsers = JSON.parse(localStorage.getItem('allUsers')) || [];
 
-        // DEBUG: This will show you in the console if the name is actually caught
-        console.log("Attempting to save name:", nameInput);
+        // 3. Find the user (normalizing the search)
+        const foundUser = allUsers.find(user => user.email.toLowerCase() === emailInput);
 
-        if (nameInput) {
-            // Store it! (Make sure there are no typos in 'loggedInUser')
-            localStorage.setItem('loggedInUser', nameInput);
-            
-            // Move to dashboard
-            window.location.href = "dashboard.html";
+        if (foundUser) {
+            // 4. Validate password
+            if (foundUser.password === passwordInput) {
+                // SUCCESS: Save "loggedInUser" for the Dashboard [cite: 73, 74]
+                localStorage.setItem('loggedInUser', foundUser.name);
+                window.location.href = "dashboard.html"; 
+            } else {
+                alert("Incorrect password!");
+            }
         } else {
-            alert("Please enter your name!");
+            alert("No account found with this email. Please sign up first.");
         }
     });
 }
+// 1. Select the name display and logout button
+const userNameSpan = document.getElementById('userName');
+const logoutBtn = document.getElementById('logout-btn');
 
-// Inside your login/signup submit function
-const nameValue = document.getElementById('login-name').value;
-
-// Save it using this EXACT key: 'currentUser'
-localStorage.setItem('loggedInUser', nameValue);
-
-window.location.href = "dashboard.html";
-
-// Run this as soon as the dashboard loads
-
-
-// This runs as soon as the Dashboard page loads
-window.addEventListener('load', () => {
+// --- DISPLAY LOGIC ---
+// This runs as soon as the dashboard loads
+if (userNameSpan) {
     const savedName = localStorage.getItem('loggedInUser');
 
-    console.log("Dashboard found name:", savedName);
-
     if (savedName) {
-        // Ensure your HTML has <span id="userName"></span>
-        const nameDisplay = document.getElementById('userName');
-        if (nameDisplay) {
-            nameDisplay.textContent = savedName;
-        }
+        // Update the "Welcome" text with the user's name
+        userNameSpan.textContent = savedName;
     } else {
-        // If it's still null, redirect back to login
-        console.warn("No user found, redirecting...");
+        // PROTECT THE PAGE: If no one is logged in, send them to Login
         window.location.href = "login.html";
     }
-});
-
-
-// Put this at the very top of your dashboard script
-window.addEventListener('DOMContentLoaded', () => {
-    // Look for the EXACT same key we used in login
-    const savedName = localStorage.getItem('currentUser');
-
-    if (savedName) {
-        // Find the span and update the text
-        document.getElementById('display-name').textContent = savedName;
-    } else {
-        console.log("No name found in storage!");
-    }
-});
-
-const dashboardNameSpan = document.getElementById('userName');
-
-// ONLY run this if we are on the Dashboard page
-if (dashboardNameSpan) {
-    const savedName = localStorage.getItem('loggedInUser');
-    
-    if (savedName) {
-        dashboardNameSpan.textContent = savedName;
-    } else {
-        // Optional: If they aren't logged in, send them back
-        // window.location.href = "login.html";
-    }
 }
-// Logout Logic (Clears storage and redirects)
-document.getElementById('logoutBtn').addEventListener('click', () => {
-    localStorage.removeItem('loggedInUser');
-    window.location.href = 'project2.html';
 
-});
+// --- LOGOUT LOGIC ---
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+        // 1. Clear the session
+        localStorage.removeItem('loggedInUser');
 
+        // 2. Send user back to Home page
+        console.log("User logged out");
+        window.location.href = "project2.html"; 
+    });
+}
 
-    // 2. Get the values from your inputs
-    const name = document.getElementById('login-name').value;
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
 
-    // 3. Logic check (For now, we'll just check if they aren't empty)
-    if ( name && email && password) {
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        // Toggle the 'active' class on the menu
+        navLinks.classList.toggle('active');
         
-        // MANDATORY: Save the name/email to localStorage so the Dashboard can see it
-        // Since you're using email, let's extract a "name" or just store the email
-        localStorage.setItem('loggedInUser', name);
-
-        // 4. NOW move to the dashboard
-        console.log("Success! Redirecting...");
-        window.location.href = "dashboard.html"; 
-        
-    } else {
-        alert("Please enter your credentials.");
-    }
-;
-
-const userNameSpan = document.getElementById('userName');
-
-if (userNameSpan) {
-    const data = localStorage.getItem('loggedInUser');
-    if (data) {
-        userNameSpan.textContent = data;
-    }
+        // Optional: Animate the hamburger into an 'X'
+        hamburger.classList.toggle('is-active');
+    });
 }

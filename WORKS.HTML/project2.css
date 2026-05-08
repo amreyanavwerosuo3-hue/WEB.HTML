@@ -1,16 +1,24 @@
+*,
+*::before,
+*::after{
+     margin:0;
+     padding:0;
+     box-sizing: border-box;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 html{
-    font-family:'segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f1f5f9;
-    margin: 0;
-    padding: 40px;
+scroll-behavior: smooth;
 }
 
 body{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+     font-size: 1rem;
+     line-height: 1.6;
+     max-width: 1280px;
+     margin: 0 auto;
+     padding: 0 20px;
+     
 }
-
 .nav{
     display: flex;
     justify-content: space-between;
@@ -19,8 +27,11 @@ body{
     background-color: #6c5ce7;
     border-radius: 70px;
     border: 1px solid #222;
+    position: relative;
     margin: 12px 14px;
+    z-index: 1000;
 }
+
 
 .nav-link{
     display: flex;
@@ -367,163 +378,85 @@ h1 {
     background-color: #2ecc71;
     cursor: default;
 }
-
+/* Auth Container Styling */
 .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 400px;
-    padding: 20px;
+    background: linear-gradient(135deg, #F3F0FF 0%, #EBE4FF 100%); /* Secondary color gradient */
 }
 
 .auth-card {
     background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    margin-bottom: 20px;
-}
-
-h2 {
-    margin-bottom: 1.5rem;
-    color: #1a1a1a;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.15); /* Soft purple shadow */
+    width: 90%;
+    max-width: 400px; /* Keeps it from stretching too wide */
     text-align: center;
 }
 
-/* Form Styling */
+.auth-card h2 {
+    color: #6C5CE7; /* Primary Purple */
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    text-align: left;
 }
 
-label {
+.form-group label {
     display: block;
-    margin-bottom: 5px;
-    font-size: 0.9rem;
+    margin-bottom: 8px;
     font-weight: 600;
-    color: #444;
+    color: #2D3436;
 }
 
-input {
+.form-group input {
     width: 100%;
     padding: 12px;
-    border: 1.5px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
+    border: 2px solid #F3F0FF;
+    border-radius: 10px;
+    transition: 0.3s;
+    box-sizing: border-box; /* Fixes input overflow */
 }
 
-input:focus {
+.form-group input:focus {
+    border-color: #6C5CE7;
     outline: none;
-    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(108, 92, 231, 0.2);
 }
 
-/* Button Styling */
 .btn {
     width: 100%;
-    padding: 12px;
-    background-color: #007bff;
+    padding: 14px;
+    background-color: #6C5CE7;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.2s;
+    transition: 0.3s;
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #5A4AD1;
+    transform: translateY(-2px);
 }
 
 .toggle-text {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 0.85rem;
-    color: #666;
+    margin-top: 20px;
+    color: #636e72;
 }
 
 .toggle-text a {
-    color: #007bff;
+    color: #00C896; /* Accent Green */
     text-decoration: none;
-    font-weight: 600;
-}
-
-.auth-container {
-    width: 100%;
-    max-width: 1100px;
-    padding: 20px;
-}
-
-.auth-card {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    margin-bottom: 20px;
-}
-
-h2 {
-    margin-bottom: 1.5rem;
-    color: #1a1a1a;
-    text-align: center;
-}
-
-/* Form Styling */
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #444;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    border: 1.5px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-input:focus {
-    outline: none;
-    border-color: #007bff;
-}
-
-/* Button Styling */
-.btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.2s;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
-.toggle-text {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 0.85rem;
-    color: #666;
-}
-
-.toggle-text a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 
@@ -581,7 +514,6 @@ input:focus {
   margin-top: 1.5rem;
   border: none;
   border-radius: 8px;
-  background: var(--primary);
   color: rgb(45, 133, 248);
   font-weight: 600;
   cursor: pointer;
@@ -669,7 +601,6 @@ input:focus {
 .cta-button {
   width: 100%;
   padding: 14px;
-  background: var(--action-color);
   color: rgb(112, 182, 228);
   border: none;
   border-radius: 6px;
@@ -680,7 +611,6 @@ input:focus {
 }
 
 .cta-button:hover {
-  filter: brightness(1.1);
   background: #7506f5;
   transform: translateY(-2px);
 }
@@ -1016,21 +946,85 @@ input:focus {
     line-height: 1.5;
     font-size: 0.95rem;
 }
-
-.mute{
-  display: flex;
-  justify-content: space-between;
+/* Container Setup */
+.mute {
+  padding: 40px 20px;
+  background-color: #0f172a; /* Deep dark blue/black background */
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.mute-wrap button{
-    background-color: #2980b9;
-    border-radius: 12px;
-    transition: background 0.3s;
+.course-grid {
+  display: grid;
+  /* Creates 3 equal columns */
+  grid-template-columns: repeat(3, 1fr); 
+  /* This creates the space between the cards */
+  gap: 30px; 
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.mute-wrap button:hover{
-   background-color: #c0392b;
-   background-color: #0056b3;
+/* Card Styling */
+.mute-wrap {
+  background: rgba(255, 255, 255, 0.05); /* Glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.mute-wrap:hover {
+  transform: translateY(-10px);
+  border-color: #3b82f6; /* Modern Blue highlight */
+}
+
+h2 {
+  color: #f8fafc;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Professional Button */
+button {
+  background-color: #3b82f6;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+button a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  display: block;
+}
+
+/* --- Media Queries --- */
+
+/* Tablet View (2 columns) */
+@media (max-width: 992px) {
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile View (1 column) */
+@media (max-width: 600px) {
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mute-wrap {
+    padding: 20px;
+  }
 }
 
 
@@ -1061,6 +1055,27 @@ input:focus {
         flex-direction: column;
         gap: 10px;
     }
-  }
 
+    .course-wrap{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero{
+        width: 100%;
+        height: auto;
+        max-width: 250%;
+    }
+
+    .grid{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-link{
+        display: none;
+    }
+
+
+  }
 
